@@ -4,7 +4,7 @@ const hostUrl = require('../middlewares/host-url')
 
 router.use(hostUrl())
 
-router.use('/imdb', require('./imdb'))
+// router.use('/imdb', require('./imdb'))
 
 router.get('/manifest.json', require('./manifest'))
 router.get('/robots.txt', require('./robots'))

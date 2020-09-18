@@ -3,14 +3,13 @@ import template from './movies.pug'
 import {
   Imdb,
 } from '../../models'
-import striptags from 'striptags'
-import { score as fuzzyScore } from 'fuzzaldrin'
+// import { score as fuzzyScore } from 'fuzzaldrin'
 import '../search/search.js'
 
 @Component('poll')
 @Attribute('page-limit', Number)
 @Template(template)
-export default class Movies extends HTMLElement {
+class Movies extends HTMLElement {
   attached() {
 
   }
@@ -23,3 +22,5 @@ export default class Movies extends HTMLElement {
 
   }
 }
+
+export default document.createElement('poll-movies')

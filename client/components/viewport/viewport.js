@@ -1,4 +1,4 @@
-import { Component, Template, Attribute } from '@scoutgg/widgets/esm/index.js'
+import { Component, Template } from '@scoutgg/widgets/esm/index.js'
 import emitter from '../../services/emitter.js'
 import template from './viewport.pug'
 import '../movies/movies.js'
