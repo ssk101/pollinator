@@ -1,18 +1,3 @@
-style= require('./tournaments.styl')
+style= require('./movies.styl')
 
-api-search(
-  (search:submit)=this.search(e.target.value),
-  (search:reset)=this.search()
-)
-
-api-data-table(
-  class=this.api,
-  [data]=tournaments,
-  last-page=this.pages?.lastPage,
-  page=this.pages?.page,
-  static=true,
-  loading=this.loading,
-  (data-table:page-changed)=pageChanged(e)
-)
-  span(slot='header')= `Tournaments for ${this.game}`
-
+span 123

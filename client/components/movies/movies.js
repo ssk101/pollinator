@@ -1,11 +1,10 @@
 import { Component, Template, Attribute } from '@scoutgg/widgets/esm/index.js'
-import template from './tournaments.pug'
+import template from './movies.pug'
 import {
   Imdb,
 } from '../../models'
 import striptags from 'striptags'
 import { score as fuzzyScore } from 'fuzzaldrin'
-import config from 'ftw/source/services/config.js'
 import '../search/search.js'
 
 @Component('poll')
