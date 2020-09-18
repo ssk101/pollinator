@@ -1,11 +1,116 @@
 {
-  "name": "poll-thing",
+  "name": "pollinator",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./tasks/serve.js",
+    "build": "env NODE_ENV=production node ./tasks/build",
+    "serve": "pm2 start ecosystem.config.js --env production"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint -c ./.eslintrc"
+    ]
+  },
+  "browserslist": [
+    "> 5%"
+  ],
+  "browserify": {
+    "transform": [
+      [
+        "fn-pug/lib/transform/browserify"
+      ],
+      "stylify",
+      [
+        "babelify",
+        {
+          "extensions": [
+            ".js",
+            ".pug"
+          ]
+        }
+      ]
+    ]
+  },
+  "dependencies": {
+    "@scoutgg/widgets": "^2.2.0",
+    "fuzzaldrin": "^2.1.0",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
+    "page": "^1.11.6",
+    "qs": "^6.9.1",
+    "socket.io-client": "^2.3.0",
+    "striptags": "^3.1.1",
+    "virtual-dom": "^2.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.6",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-decorators": "^7.8.3",
+    "@babel/plugin-proposal-export-default-from": "^7.2.0",
+    "@babel/plugin-proposal-function-bind": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "7.4.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.8.3",
+    "@babel/plugin-transform-async-to-generator": "^7.1.0",
+    "@babel/preset-env": "^7.8.6",
+    "@hapi/joi": "^17.1.1",
+    "apicache-plus": "^2.2.1",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-class-name": "github:zeddidragon/babel-plugin-class-name",
+    "babelify": "^10.0.0",
+    "body-parser": "^1.19.0",
+    "browserify": "^16.2.3",
+    "browserify-hmr": "^0.4.0",
+    "compression": "^1.7.4",
+    "config-node": "^1.3.0",
+    "cors": "^2.8.5",
+    "envify": "^4.1.0",
+    "errorify": "^0.3.1",
+    "eslint": "^5.15.3",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-only-warn": "^1.0.2",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-pug": "^1.2.2",
+    "eslint-plugin-standard": "^4.0.1",
+    "express": "^4.17.1",
+    "flush-write-stream": "^2.0.0",
+    "fn-pug": "github:scoutgg/fn-pug",
+    "fs-extra": "^8.1.0",
+    "get-port": "^5.1.1",
+    "http-errors": "^1.7.3",
+    "husky": "^4.2.3",
+    "ioredis": "^4.16.0",
+    "isomorphic-fetch": "^2.2.1",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.20.11",
+    "lint-staged": "^10.0.8",
+    "minify-stream": "^1.2.1",
+    "node-fetch": "^2.6.0",
+    "pathmodify": "^0.5.0",
+    "pino": "^5.17.0",
+    "pug": "^2.0.4",
+    "response-time": "^2.3.2",
+    "serve-favicon": "^2.5.0",
+    "socket.io": "^2.3.0",
+    "socket.io-emitter": "^3.1.1",
+    "socket.io-redis": "^5.2.0",
+    "stylify": "^1.4.0",
+    "stylus": "^0.54.7",
+    "through2": "^3.0.1",
+    "uglifyify": "^5.0.2",
+    "util": "^0.12.2",
+    "watchify": "^3.11.1",
+    "ws": "^7.2.3"
+  }
 }

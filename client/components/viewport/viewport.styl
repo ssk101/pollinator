@@ -1,0 +1,120 @@
+@import '../../styles/styles.styl'
+
+:host
+  display: grid
+  grid-gap: .5em
+  align-content: flex-start
+  grid-template-rows: auto auto 1fr
+  padding: 1em
+  box-sizing: border-box
+  height: 100%
+  --button-background: var(--primary-start)
+  --button-color: var(--primary-text)
+  --tabs-tab-background: var(--primary-start)
+  --tabs-tab-color: var(--primary-text)
+
+:host([api='abios']), .abios
+  --api-primary-start: #454EE7
+  --api-primary-end: #3F4061
+  --api-primary-text: #fff
+  --api-primary-text-disabled: #aaa
+
+:host([api='gamescorekeeper']), .gamescorekeeper
+  --api-primary-start: #c7102e
+  --api-primary-end: #581D26
+  --api-primary-text-disabled: #aaa
+
+:host([game='csgo']), .csgo
+  --primary-hue: #ffc47d
+  --primary-start: #fd9e2c
+  --primary-end: #e77f09
+  --primary-text: #fff
+  --secondary-highlight: #5d3408
+  --secondary-hue: #422a0d
+  --secondary-start: #2b1c09
+  --secondary-end: #2b1c09
+  --secondary-text: #fff
+
+:host([game='dota2']), .dota2
+  --primary-hue: #ff917b
+  --primary-start: #e44c2d
+  --primary-end: #c73a1e
+  --primary-text: #fff
+  --secondary-highlight: #732311
+  --secondary-hue: #5d1f12
+  --secondary-start: #40170f
+  --secondary-end: #40170f
+  --secondary-text: #fff
+
+:host([game='lol']), .lol
+  --primary-hue: #7272f5
+  --primary-start: #3d45a2
+  --primary-end: #2e3587
+  --primary-text: #fff
+  --secondary-highlight: #151c75
+  --secondary-hue: #0e145d
+  --secondary-start: #0d0f29
+  --secondary-end: #0d0f29
+  --secondary-text: #fff
+
+h1, h2, h3, h4
+  margin: 0
+
+header
+  display: grid
+  grid-auto-flow: column
+  grid-gap: .5em
+  align-items: center
+  margin: 0
+  padding: 0 .5em 0 0
+  .game,
+  .api
+    border-radius: var(--border-radius)
+    cursor: pointer
+    text-decoration: none
+    &[data-selected]
+      .title
+        text-shadow: 0 2px 3px rgba(0, 0, 0, .5)
+  .api
+    background: var(--api-primary-start)
+    color: var(--api-primary-text)
+    &[data-selected]
+      .title
+        color: var(api-primary-text)
+    &:not([data-selected])
+      background: var(--api-primary-end)
+      .title
+        color: var(--api-primary-text-disabled)
+  .game
+    background: var(--primary-start)
+    color: var(--primary-text)
+    &:not([data-selected])
+      background: var(--primary-end)
+  .title
+    display: grid
+    grid-template-columns: auto 1fr
+    grid-gap: 1em
+    align-items: center
+    padding: .5em
+    text-transform: uppercase
+  img
+    width: 64px
+    filter: drop-shadow(0 3px 3px rgba(0,0,0,0.75))
+
+api-tabs
+  padding: 0 .5em
+  --tabs-auto-flow: column
+
+section
+  display: grid
+  grid-template-rows: auto 1fr
+  grid-template-columns: 42px auto
+  background: var(--secondary-start)
+  border-radius: var(--border-radius)
+  .sidelogo
+    background: var(--primary-end)
+    grid-row: span 2
+    border-radius: var(--border-radius) 0 0 var(--border-radius)
+    img
+      border-radius: var(--border-radius) 0 0 0
+      width: 100%

@@ -1,0 +1,38 @@
+style= require('./viewport.styl')
+
+header.apis
+  each api in apis
+    a.api(
+      class=api,
+      data-selected=this.api === api,
+      href=this.link('game', { api, game })
+    )
+      .title
+        h3= api
+
+if this.ready
+  header.games
+    each game in Object.keys(this.games)
+      - const { images } = this.gameData[game]
+      a.game(
+        class=game,
+        data-selected=this.game === game,
+        href=this.link('game', { api: this.api, game })
+      )
+        .title
+          if images
+            img(src=images.circle)
+          h1= game
+
+  section(class=this.game)
+    .sidelogo
+      img(src=this.currentGameData?.images?.rectangle)
+
+    api-tabs(
+      [tabs]=this.tabs,
+      tab=this.tab,
+      api=this.api,
+      (tabs:changed)=this.tabChanged(e)
+    )
+
+    slot

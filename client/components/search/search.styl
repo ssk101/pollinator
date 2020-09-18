@@ -1,0 +1,21 @@
+:host
+  display: grid
+  grid-auto-flow: column
+  grid-gap: 1em
+  justify-items: center
+  justify-content: center
+  font-family: Roboto Mono
+
+button
+  border: none
+  background: var(--primary-start)
+  color: var(--primary-text)
+  border-radius: var(--border-radius)
+  text-align: center
+  cursor: pointer
+  &[disabled]
+    pointer-events: none
+    opacity: .5
+  &.clear
+    background: var(--danger)
+    color: var(--danger-text)

@@ -1,0 +1,74 @@
+doctype html
+html(lang='en')
+  head
+    if config.production
+      script.
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-PCFLQ7T');
+
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no, minimal-ui')
+    meta(name='mobile-web-app-capable', content='yes')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    title= config.title
+    style.
+      @import url('https://fonts.googleapis.com/css?family=Comfortaa|Oxanium|Russo+One&display=swap');
+      @import url('https://fonts.googleapis.com/css?family=Cousine:400,700|Roboto+Mono:400,700&display=swap');
+      @font-face {
+        font-family: 'Material Icons';
+        src: url('https://fonts.gstatic.com/s/materialicons/v50/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2') format('woff2');
+      }
+      html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Oxanium', sans-serif;
+      }
+      html, body {
+        height: 100%;
+      }
+      body {
+        background: #000;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        --border-radius: 2px;
+
+        --success: #04ec36;
+        --danger: #ff0000;
+        --warning: #ffc800;
+
+        --primary-hue: #bbbbbb;
+        --primary-start: #ffffff;
+        --primary-end: #dddddd;
+        --primary-text: #000000;
+
+        --secondary-highlight: #888888;
+        --secondary-hue: #666666;
+        --secondary-start: #111111;
+        --secondary-end: #333333;
+        --secondary-text: #ffffff;
+
+      }
+      main {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        max-width: 1440px;
+      }
+  body
+    if config.production
+      noscript
+        iframe(src="https://www.googletagmanager.com/ns.html?id=GTM-PCFLQ7T" height="0" width="0" style="display:none;visibility:hidden")
+    main
+      poll-viewport
+        view-port
+
+    script(src='/application.js')&attributes(pollConfig())

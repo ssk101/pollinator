@@ -1,0 +1,7 @@
+style= require('./pagination.styl')
+
+button((click)=this.firstPage()) <<
+button((click)=this.prevPage()) <
+span= `${this.current} / ${clamp((this.lastPage || 0), 0, (this.lastPage || 0))}`
+button((click)=this.nextPage()) >
+button((click)=this.finalPage()) >>

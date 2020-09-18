@@ -1,0 +1,22 @@
+style= require('./search.styl')
+
+input(
+  #input,
+  type=type,
+  disabled=disabled,
+  min=min,
+  max=max,
+  value=value,
+  maxlength=maxlength,
+  (input)=this.onInput(e.target.value),
+  (keyup)=this.keyUp(e.keyCode)
+)
+button(
+  disabled=!this.value || (this.value.length < 2),
+  (click)=this.submit()
+) Search
+
+button.clear(
+  (click)=this.clear(),
+  disabled=!this.value,
+) X
